@@ -1,0 +1,27 @@
+{
+  "tests": [
+    {
+      "name": "Get forecast for 12 months",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "period": 12,
+        "base_demand": 5000,
+        "seasonality": "auto"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "period": 12,
+        "model": "seasonal_trend",
+        "accuracy": 94.2
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle OPTIONS request",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
